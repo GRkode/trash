@@ -9,7 +9,7 @@
                     <div class="d-inline-block">
                         <h5>POUBELLE</h5>
                         <span>
-                            <a href="{{route('departement.list')}}" class="btn btn-inverse btn-outline-inverse btn-sm">
+                            <a href="{{route('departement.list',['etat'=>'pas-pleinne'])}}" class="btn btn-inverse btn-outline-inverse btn-sm">
                                 Consulter
                             </a>
                         </span>
@@ -36,7 +36,7 @@
                     <div class="d-inline-block">
                         <h5>POUBELLE</h5>
                         <span>
-                            <a href="{{route('departement.list')}}" class="btn btn-inverse btn-outline-inverse btn-sm">
+                            <a href="{{route('departement.list',['etat'=>'moitie-pleinne'])}}" class="btn btn-inverse btn-outline-inverse btn-sm">
                                 Consulter
                             </a>
                         </span>
@@ -63,7 +63,7 @@
                     <div class="d-inline-block">
                         <h5>POUBELLE</h5>
                         <span>
-                            <a href="{{route('departement.list')}}" class="btn btn-inverse btn-outline-inverse btn-sm">
+                            <a href="{{route('departement.list',['etat'=>'pleinne'])}}" class="btn btn-inverse btn-outline-inverse btn-sm">
                                 Consulter
                             </a>
                         </span>

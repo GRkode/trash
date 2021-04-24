@@ -11,7 +11,7 @@ return [
         'show' => 'Liste des départements',
     ],
     'poubelle' => [
-        'show' => 'Etat des poubelles',
+        'show' => 'Détails sur la poubelle',
     ],
     'zone' => [
         'show' => 'Liste des zones',
@@ -28,6 +28,30 @@ return [
         'edit' => "Modification zone de collecte",
         'destroy' => [
             'alert' => "Suppression zone de collecte",
+        ],
+    ],
+    'users' => [
+        'index' => 'Liste des utilisateurs',
+        'create' => "Création d'utilisation",
+        'edit' => "Modification utilisateur",
+        'destroy' => [
+            'alert' => "Suppression d'un utilisateur",
+        ],
+    ],
+    'roles' => [
+        'index' => 'Liste des rôles',
+        'create' => "Création de rôle",
+        'edit' => "Modification d'un rôle",
+        'destroy' => [
+            'alert' => "Suppression d'un rôle",
+        ],
+    ],
+    'autorisations' => [
+        'index' => 'Liste des permissions',
+        'create' => "Création d'une permission",
+        'edit' => "Modification d'une permission",
+        'destroy' => [
+            'alert' => "Suppression d'une permission",
         ],
     ],
     'agences' => [
@@ -60,22 +84,6 @@ return [
         'edit' => "Modification d'une poubelle",
         'destroy' => [
             'alert' => "Suppression d'une poubelle",
-        ],
-    ],
-    'autorisations' => [
-        'index' => 'Les accès',
-        'create' => "Création d'un accès",
-        'edit' => "Modification d'un accès",
-        'destroy' => [
-            'alert' => "Suppression d'un accès",
-        ],
-    ],
-    'roles' => [
-        'index' => 'Les rôles',
-        'create' => "Création d'un rôle",
-        'edit' => "Modification d'un rôle",
-        'destroy' => [
-            'alert' => "Suppression d'un rôle",
         ],
     ],
     'department' => [

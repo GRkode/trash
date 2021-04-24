@@ -77,6 +77,18 @@ class PoubelleController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $poubelle = Poubelle::findOrFail($id);
+        return view('poubelle.show', compact('poubelle'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Poubelle  $poubelle

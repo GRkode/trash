@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PermissionRequest;
 use App\Http\Requests\UpdatePermissionRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use MercurySeries\Flashy\Flashy;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
 class AutorisationController extends Controller
 {
@@ -82,10 +79,15 @@ class AutorisationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Permission $autorisation)
     {
-        DB::table("permissions")->where('id',$id)->delete();
+        $autorisation->delete();
         Flashy::success('Autorisation supprimée avec succès');
-        return redirect()->route('autorisations.index');
+        return redirect(route('autorisations.index'));
+    }
+
+    public function alert(Permission $autorisation)
+    {
+        return view('backend.autorisations.destroy', ['autorisation' => $autorisation]);
     }
 }

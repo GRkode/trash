@@ -14,7 +14,7 @@ class PermissionRequest extends FormRequest
      */
     public function authorize()
     {
-        return (Auth::user()->hasRole('super-admin'));
+        return (Auth::user()->hasRole('Admin'));
     }
 
     /**

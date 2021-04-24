@@ -8,4 +8,13 @@ class History extends Model
 {
     protected $fillable = ['etat', 'poubelle_id', 'zone_id'];
 
+    public function poubelle()
+    {
+        return $this->belongsTo(Poubelle::class);
+    }
+
+    public function zone()
+    {
+        return $this->belongsTo(Zone::class);
+    }
 }

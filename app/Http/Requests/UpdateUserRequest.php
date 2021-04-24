@@ -14,7 +14,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return (Auth::user()->hasRole('super-admin'));
+        return (Auth::user()->hasRole('Admin'));
     }
 
     /**
@@ -25,9 +25,8 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'nom' => 'required|string|max:255',
-            'prenom' => 'required|string|max:255',
-            'tel' => 'required|numeric',
+            'name' => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,'.$this->user,
             'password' => 'same:password_confirmation',
             'roles' => 'required'

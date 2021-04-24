@@ -1,13 +1,5 @@
 @extends('layouts.app')
 
-@section('title', "Créer un utilisatuer")
-
-@section('button')
-    <a href='{{route('users.index')}}' class='d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm'>
-        <i class='fas fa-backspace fa-sm text-white-50'></i> Retour
-    </a>
-@stop
-
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -15,33 +7,23 @@
                     <form method="post" action="{{ route('users.store') }}">
                         @csrf
                         <div class="card-body ">
-                            <div class="form-group @error('nom') is-invalid @enderror">
-                                <label class="font-weight-bold text-primary" for="nom">Saisir le nom</label>
-                                <input type="text" name="nom" class="form-control" id="nom" value="{{old('nom')}}">
-                                @error('nom')
+                            <div class="form-group @error('name') is-invalid @enderror">
+                                <label class="font-weight-bold text-primary" for="name">Saisir le name</label>
+                                <input type="text" name="name" class="form-control" id="name" value="{{old('name')}}">
+                                @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
                             </div>
 
-                            <div class="form-group @error('prenom') is-invalid @enderror">
-                                <label class="font-weight-bold text-primary" for="prenom">Saisir le prénom</label>
-                                <input type="text" name="prenom" class="form-control" id="prenom" value="{{old('prenom')}}">
-                                @error('prenom')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group @error('tel') is-invalid @enderror">
-                                <label class="font-weight-bold text-primary" for="tel">Saisir le téléphone</label>
-                                <input type="text" name="tel" class="form-control" id="tel" value="{{old('tel')}}">
-                                @error('tel')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <div class="form-group @error('firstname') is-invalid @enderror">
+                                <label class="font-weight-bold text-primary" for="firstname">Saisir le prénom</label>
+                                <input type="text" name="firstname" class="form-control" id="firstname" value="{{old('firstname')}}">
+                                @error('firstname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
 
@@ -88,24 +70,18 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group">
-                                <label for="roleUser">Choisir le péage</label>
-                                <select name="peage" id="lpeage" class="form-control" required>
-                                    @foreach($peages as $peage)
-                                        <option value="{{$peage->id}}" {{ old('peage') == $peage->id ? 'selected' : '' }}>
-                                            {{$peage->title}}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('peage')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    @can('user-list')
+                                        <a class="btn btn-mat btn-inverse btn-block" href="{{ route('users.index') }}" role="button">
+                                            Retour à la liste
+                                        </a>
+                                    @endcan
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-mat btn-success btn-block">Enregistrer</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-footer text-right">
-                            <button type="submit" class="btn btn-primary">{{ __('Enregistrer') }}</button>
                         </div>
                     </form>
                 </div>

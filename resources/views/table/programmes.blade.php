@@ -30,8 +30,8 @@
                                     <td>{{\Carbon\Carbon::parse($programme->date_debut)->format('d-m-Y')}}</td>
                                     <td>{{\Carbon\Carbon::parse($programme->date_fin)->format('d-m-Y')}}</td>
                                     <td>{{$programme->jours}}</td>
-                                    <td>{{$programme->entreprise->name}}</td>
-                                    <td>{{$programme->zone->title}}</td>
+                                    <td>{{$programme->agence->name}}</td>
+                                    <td>{{$programme->agence->zone->title}}</td>
                                     <td class="text-center">
                                         <a href="{{route('programmations.edit', $programme->id)}}" class="btn btn-xs btn-warning btn-block">Modifier</a>
                                     </td>

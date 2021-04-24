@@ -48,40 +48,20 @@
                             @endif
                         </div>
 
-                            <div class="form-group">
-                                <label>Agence</label>
-                                <select id="agence_id" name="entreprise_id" class="custom-select custom-select-md mb-3 {{ $errors->has('entreprise_id') ? ' is-invalid' : '' }}" required>
-                                    <option value="" selected>--- Choisir l'agence ---</option>
-                                    @foreach($entreprises as $entreprise)
-                                        <option value=" {{ $entreprise->id }}"
-                                                @if(old('entreprise_id', isset($programme) ? $programme->entreprise_id : '') == $entreprise->id) selected @endif>
-                                            {{ $entreprise->name}}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @if ($errors->has('entreprise_id'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('entreprise_id') }}
-                                    </div>
-                                @endif
-                            </div>
-
                         <div class="form-group">
-                            <label>Zone</label>
-                            <select id="zone_id" name="zone_id" class="custom-select custom-select-md mb-3 {{ $errors->has('zone_id') ? ' is-invalid' : '' }}" required>
-                                <option value="" selected>---  ---</option>
-                                @if(isset($programme))
-                                    @foreach($zones as $zone)
-                                        <option value=" {{ $zone->id }}"
-                                                @if(old('zone_id', isset($programme) ? $programme->zone_id : '') == $zone->id) selected @endif>
-                                            {{ $zone->title }}
-                                        </option>
-                                    @endforeach
-                                @endif
+                            <label>Agence</label>
+                            <select id="agence_id" name="agence_id" class="custom-select custom-select-md mb-3 {{ $errors->has('agence_id') ? ' is-invalid' : '' }}" required>
+                                <option value="" selected>--- Choisir l'agence ---</option>
+                                @foreach($entreprises as $entreprise)
+                                    <option value=" {{ $entreprise->id }}"
+                                            @if(old('agence_id', isset($programme) ? $programme->agence_id : '') == $entreprise->id) selected @endif>
+                                        {{ $entreprise->name}}
+                                    </option>
+                                @endforeach
                             </select>
-                            @if ($errors->has('zone_id'))
+                            @if ($errors->has('agence_id'))
                                 <div class="invalid-feedback">
-                                    {{ $errors->first('zone_id') }}
+                                    {{ $errors->first('agence_id') }}
                                 </div>
                             @endif
                         </div>

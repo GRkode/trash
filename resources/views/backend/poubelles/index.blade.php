@@ -31,10 +31,14 @@
                                         <span class="badge badge-success">{{$poubelle->zone->title}}</span>
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{route('poubelles.edit', $poubelle->id)}}" class="btn btn-xs btn-warning btn-block">Modifier</a>';
+                                        @can('poubelle-edit')
+                                            <a href="{{route('poubelles.edit', $poubelle->id)}}" class="btn btn-xs btn-warning btn-block">Modifier</a>
+                                        @endcan
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{route('poubelles.destroy.alert', $poubelle->id)}}" class="btn btn-xs btn-danger btn-block">Supprimer</a>';
+                                        @can('poubelle-delete')
+                                            <a href="{{route('poubelles.destroy.alert', $poubelle->id)}}" class="btn btn-xs btn-danger btn-block">Supprimer</a>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

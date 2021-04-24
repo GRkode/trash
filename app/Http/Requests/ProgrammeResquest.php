@@ -27,8 +27,7 @@ class ProgrammeResquest extends FormRequest
             "date_debut" => ['required', 'date', 'before:date_fin'],
             "date_fin" => ['required', 'date', 'after:date_debut'],
             "jour" => ['required', 'array', 'min:1'],
-            "entreprise_id" => ['required'],
-            "zone_id" => ['required']
+            "agence_id" => ['required']
         ];
     }
 }

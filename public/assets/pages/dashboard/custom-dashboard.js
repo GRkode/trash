@@ -8,31 +8,31 @@ $(document).ready(function() {
             "marginRight": 0,
             "dataProvider": [{
                 "year": "Jan",
-                "value": 0.98
+                "value": 80
             }, {
                 "year": "Feb",
-                "value": 1.87
+                "value": 220
             }, {
                 "year": "Mar",
-                "value": 0.97
+                "value": 100
             }, {
                 "year": "Apr",
-                "value": 1.64
+                "value": 150
             }, {
                 "year": "May",
-                "value": 0.40
+                "value": 235
             }, {
                 "year": "Jun",
-                "value": 2.90
+                "value": 120
             }, {
                 "year": "Jul",
-                "value": 5.2
+                "value": 75
             }, {
                 "year": "Aug",
-                "value": 0.77
+                "value": 80
             }, {
                 "year": "Sap",
-                "value": 3.1
+                "value": 30
             }],
             "valueAxes": [{
                 "axisAlpha": 0,

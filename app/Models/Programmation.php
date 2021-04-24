@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Programmation extends Model
 {
     protected $fillable = [
-        'date_debut', 'entreprise_id', 'date_fin', 'zone_id', 'jours'
+        'date_debut', 'agence_id', 'date_fin', 'zone_id', 'jours'
     ];
 
 
@@ -15,7 +15,7 @@ class Programmation extends Model
         return $this->belongsTo(Zone::class);
     }
 
-    public function entreprise(){
+    public function agence(){
         return $this->belongsTo(Agence::class);
     }
 }

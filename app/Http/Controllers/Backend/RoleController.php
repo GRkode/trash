@@ -108,12 +108,17 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Role $role)
     {
-        DB::table("roles")->where('id',$id)->delete();
-        DB::table('model_has_roles')->where('role_id', $id)->delete();
-
+        $role->delete();
+        DB::table('model_has_roles')->where('role_id', $role->id)->delete();
         Flashy::sucess('Rôle supprimé avec succès');
-        return redirect()->route('roles.index');
+
+        return redirect(route('roles.index'));
+    }
+
+    public function alert(Role $role)
+    {
+        return view('backend.roles.destroy', ['role' => $role]);
     }
 }

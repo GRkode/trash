@@ -37,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
             $title = config('titles.' . Route::currentRouteName());
             $view->with(compact('title'));
         });
+        View::composer('poubelle.show', function ($view) {
+            $title = config('titles.' . Route::currentRouteName());
+            $view->with(compact('title'));
+        });
         // setLocale for php. Enables ->formatLocalized() with localized values for dates
         setlocale(LC_TIME, config('app.locale_php'));
         // setLocale to use Carbon source locales. Enables diffForHumans() localized

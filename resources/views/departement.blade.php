@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('ban')
+    <h2>Départements</h2>
+@stop
+
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-6 p-5">

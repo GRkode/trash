@@ -9,7 +9,7 @@
                         <form class="md-float-material" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="text-center">
-                                <img src="{{asset('assets/images/auth/logo-dark.png')}}" alt="logo.png">
+                                <img class="img-fluid" style="width: 210px" src="{{asset('images/logo/sgds-gn.png')}}" alt="logo.png">
                             </div>
                             <div class="auth-box">
                                 <div class="row m-b-20">
@@ -59,12 +59,11 @@
                                 </div>
                                 <hr/>
                                 <div class="row">
-                                    <div class="col-md-10">
-                                        <p class="text-inverse text-left m-b-0">Merci d'avoir choisi GestTrash.</p>
-                                        <p class="text-inverse text-left"><b>Your Authentication Team</b></p>
+                                    <div class="col-md-8">
+                                        <p class="text-inverse text-left m-b-0">Merci d'avoir choisi SGDS-SYSTEM.</p>
                                     </div>
-                                    <div class="col-md-2">
-                                        <img src="{{asset('assets/images/auth/Logo-small-bottom.png')}}" alt="small-logo.png">
+                                    <div class="col-md-4">
+                                        <img class="img-fluid" style="width: 500px" src="{{asset('images/logo/sgds-gn.png')}}" alt="logo.png">
                                     </div>
                                 </div>
 

@@ -28,6 +28,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/icon/themify-icons/themify-icons.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/icon/icofont/css/icofont.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
@@ -91,7 +92,9 @@
                             <div class="page-wrapper">
                                 <div class="page-body">
 
-                                    @if(Route::currentRouteName() !== 'departement.poub')
+                                    @hasSection('ban')
+                                        @yield('ban')
+                                    @else
                                         <div class="page-header card">
                                             <div class="row align-items-end">
                                                 <div class="col-lg-8">
@@ -106,54 +109,19 @@
                                                     <div class="page-header-breadcrumb">
                                                         <ul class="breadcrumb-title">
                                                             <li class="breadcrumb-item  icon-list-demo">
-                                                                <a href="{{route('home')}}"><i class="ti-arrow-left"></i></a>
+                                                                @hasSection('ban2')
+                                                                    @yield('ban2')
+                                                                @else
+                                                                    <a href="{{route('home')}}"
+                                                                       data-toggle="tooltip" data-placement="left" title="retour">
+                                                                        <i class="ti-arrow-left"></i>
+                                                                    </a>
+                                                                @endif
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @else
-                                        <div class="page-header card">
-                                            <form>
-                                                <div class="form-row">
-                                                    <div class="col">
-                                                        <select name="" id="">
-                                                            <option value="">Département</option>
-                                                            @foreach($departements as $depart)
-                                                                    <option value="">{{$depart->title}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <div class="col">
-                                                        <select name="" id="">
-                                                            <option value="">Commune</option>
-                                                            @foreach($communes as $commune)
-                                                                <option value="">{{$commune->title}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <div class="col">
-                                                        <select name="" id="">
-                                                            <option value="">Arrondissement</option>
-                                                            @foreach($arrondissements as $arrondissement)
-                                                                <option value="">{{$arrondissement->title}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <div class="col">
-                                                        <select name="" id="">
-                                                            <option value="">Quartier</option>
-                                                            @foreach($quartiers as $quartier)
-                                                                <option value="">{{$quartier->title}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <div class="col">
-                                                        <button type="submit" class="btn btn-warning btn-block"> Filtrer</button>
-                                                    </div>
-                                                </div>
-                                            </form>
                                         </div>
                                     @endif
                                     @yield('content')
@@ -242,12 +210,16 @@
 
 <script src="{{asset('js/backend/jquery.min.js')}}"></script>
 <script src="{{asset('js/backend/bootstrap.bundle.min.js')}}"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script type="text/javascript" src="{{asset('assets/js/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/modernizr/modernizr.js')}}"></script>
+
 <script src="{{asset('assets/pages/widget/amchart/amcharts.min.js')}}"></script>
 <script src="{{asset('assets/pages/widget/amchart/serial.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/pages/dashboard/custom-dashboard.js')}}"></script>
+
 <script type="text/javascript" src="{{asset('assets/js/script.js')}}"></script>
 <script type="text/javascript " src="{{asset('assets/js/SmoothScroll.js')}}"></script>
 <script src="{{asset('assets/js/pcoded.min.js')}}"></script>
@@ -266,6 +238,11 @@
 
     $(document).ready(function() {
         $('select').select2();
+        $('#dataTable').DataTable({
+            "language": {
+                "url": "{{asset('langue/French.json')}}"
+            }
+        });
     });
 </script>
 @include('flashy::message')

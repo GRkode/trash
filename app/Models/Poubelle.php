@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Poubelle extends Model
@@ -11,6 +12,12 @@ class Poubelle extends Model
         'numero', 'public', 'latitude', 'longitude', 'zone_id', 'departement_id',
         'commune_id', 'arrondissement_id', 'quartier_id'
     ];
+    protected $appends = ['created_at'];
+
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at'])->age;
+    }
 
     public function zone()
     {
@@ -32,6 +39,11 @@ class Poubelle extends Model
         return $this->belongsTo(Arrondissement::class);
     }
 
+    public function quartier()
+    {
+        return $this->belongsTo(Quartier::class);
+    }
+
     public function histories()
     {
         return $this->hasMany(History::class);
@@ -39,6 +51,6 @@ class Poubelle extends Model
 
     public function history()
     {
-        return $this->hasOne(History::class)->latest();
+        return $this->hasOne(History::class)->latest('id');
     }
 }

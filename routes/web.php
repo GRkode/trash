@@ -16,15 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->namespace('Backend')->group(function(){
     Route::get('dashboard', 'AdminController@index')->name('home');
     Route::name('application.edit')->get('application', 'ApplicationController@edit');
-    Route::get('les-departements', 'AdminController@indexDepartement')->name('departement.list');
-    Route::get('carte-des-poubelles/{id}', 'AdminController@poubelleDepartement')->name('departement.poub');
-    Route::get('poubelle/{id}', 'AdminController@indexPoubelle')->name('poubelle.show');
+    //gestion détails poubelle
+    Route::get('les-poubelles/{etat}', 'AdminController@indexDepartement')->name('departement.list');
+    Route::get('poubelles-departement/{id}', 'AdminController@poubelleDepartement')->name('departement.poub');
+    Route::post('liste-filtre-poubelle', 'AdminController@filtrePoubelle')->name('poubelle.filtre');
+    Route::get('detail-poubelle/{id}', 'PoubelleController@show')->name('poubelle.show');
+    //gestion zones
     Route::resource('zones', 'ZoneController')->except('show');
     Route::get('zones/{zone}', 'ZoneController@alert')->name('zones.destroy.alert');
+    //gestion agence ou pme
     Route::resource('agences', 'AgenceController')->except('show');
     Route::get('agences/{agence}', 'AgenceController@alert')->name('agences.destroy.alert');
+    //gestion des poubelles
     Route::resource('poubelles', 'PoubelleController')->except('show');
     Route::get('poubelles/{poubelle}', 'PoubelleController@alert')->name('poubelles.destroy.alert');
+    //Gestion de la programmation
     Route::resource('programmations', 'ProgrammationController');
     Route::get('programmes/{programme}', 'ProgrammationController@alert')->name('programmations.destroy.alert');
     Route::get('message-aux-agences', 'SmsController@create')->name('messages.create');
@@ -39,8 +45,14 @@ Route::get('zone-agence', 'HomeController@getZone')->name('get.zone');
 
 Route::middleware('auth')->namespace('Backend')->group(function(){
     Route::resource('roles', 'RoleController');
+    Route::get('roles/{role}', 'RoleController@alert')->name('roles.destroy.alert');
     Route::resource('autorisations', 'AutorisationController')->except(['show']);
+    Route::get('autorisations/{autorisation}', 'AutorisationController@alert')->name('autorisations.destroy.alert');
     Route::resource('users', 'UserController');
+    Route::get('users/{user}', 'UserController@alert')->name('users.destroy.alert');
+    Route::get('commune', 'AjaxController@getCommune')->name('getcommune');
+    Route::get('arrondissement', 'AjaxController@getArrondissement')->name('getarrondissement');
+    Route::get('quartier', 'AjaxController@getQuartier')->name('getquartier');
 });
 
 Route::post('deconnexion', 'Auth\LoginController@logout')->name('logout');

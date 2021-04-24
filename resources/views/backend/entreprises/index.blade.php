@@ -13,7 +13,7 @@
                                 <th>Adrese</th>
                                 <th>Email</th>
                                 <th>Téléphone</th>
-                                <th>Zones</th>
+                                <th>Zone</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -29,10 +29,14 @@
                                         <span class="badge badge-success">{{$agence->zone->title}}</span>
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{route('agences.edit', $agence->id)}}" class="btn btn-xs btn-warning btn-block">Modifier</a>';
+                                        @can('agence-edit')
+                                            <a href="{{route('agences.edit', $agence->id)}}" class="btn btn-xs btn-warning btn-block">Modifier</a>';
+                                        @endcan
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{route('agences.destroy.alert', $agence->id)}}" class="btn btn-xs btn-danger btn-block">Supprimer</a>';
+                                        @can('agence-delete')
+                                            <a href="{{route('agences.destroy.alert', $agence->id)}}" class="btn btn-xs btn-danger btn-block">Supprimer</a>';
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

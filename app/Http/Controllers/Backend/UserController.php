@@ -5,7 +5,6 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UserRequest;
-use App\Models\Peage;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -34,8 +33,7 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('name');
-        $peages = Peage::get();
-        return view('backend.users.create',compact('roles', 'peages'));
+        return view('backend.users.create',compact('roles'));
     }
 
     /**
@@ -52,8 +50,7 @@ class UserController extends Controller
             'prenom' =>  $request->prenom,
             'tel' => $request->tel,
             'email' => $request->email,
-            'password' => $password,
-            'peage_id' => $request->peage
+            'password' => $password
         ]);
         $user->assignRole($request->input('roles'));
 
@@ -126,11 +123,16 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        User::find($id)->delete();
+        $user->delete();
         DB::table('model_has_roles')->where('model_id', $id)->delete();
         Flashy::success('Utilisateur supprimé avec succès');
-        return redirect()->route('users.index');
+        return redirect(route('users.index'));
+    }
+
+    public function alert(User $user)
+    {
+        return view('backend.users.destroy', ['user' => $user]);
     }
 }

@@ -71,7 +71,7 @@ class ProgrammationController extends Controller
      */
     public function show($id)
     {
-        $programmes = Programmation::where('entreprise_id', $id)->with('entreprise', 'zone')->get();
+        $programmes = Programmation::where('agence_id', $id)->with('agence', 'zone')->get();
         return view('table.programmes', compact('programmes'));
     }
 
@@ -83,7 +83,6 @@ class ProgrammationController extends Controller
      */
     public function edit(Programmation $programmation)
     {
-        $zones = Agence::find($programmation->entreprise_id)->zones;
         $entreprises = Agence::get();
         $jours = [
             ['title' => 'lundi'],
@@ -96,7 +95,6 @@ class ProgrammationController extends Controller
         ];
         return view('backend.programmes.form', ['programme' => $programmation,
             'jours' => $jours,
-            'zones' => $zones,
             'entreprises'=>$entreprises]);
     }
 

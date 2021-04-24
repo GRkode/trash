@@ -101,10 +101,11 @@
                             <div class="row">
                                 <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
                                     <div class="text-bg">
-                                        <h1>Get<br> Thinking A <br>long time</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis </p>
+                                        <h1>Système<br> Intelligente de gestion des déchets</h1>
+                                        <p>
+                                            L'innovation technologique au mis au service de l'environnement afin
+                                            de pouvoir trouver des solutions efficaces pour des problèmes environnementaux
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
@@ -122,10 +123,11 @@
                             <div class="row">
                                 <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
                                     <div class="text-bg">
-                                        <h1>Get<br> Thinking A <br>long time</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis </p>
+                                        <h1>Poubelles<br> Connectées <br>dans nos villes</h1>
+                                        <p>
+                                            La gestions des déchets ménagers devient un vrai challenge
+                                            mais grâce à cette solution ce challenge est relevé
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
@@ -143,10 +145,11 @@
                             <div class="row">
                                 <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
                                     <div class="text-bg">
-                                        <h1>Get<br> Thinking A <br>long time</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis </p>
+                                        <h1>SGDS-GN<br> Au coeur du <br>Numérique</h1>
+                                        <p>
+                                            Nous vous offrons des poubelles qui contrôlent le taux de remplissage
+                                            et nous informe pour la collecte
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
@@ -274,7 +277,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="address">
-                                <h3>Follow Us</h3>
+                                <h3>Suivez-nous</h3>
                             </div>
                             <ul class="social_icon">
                                 <li><a href="#">Facebook <i class="fa fa-facebook" aria-hidden="true"></i></a></li>
