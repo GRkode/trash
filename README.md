@@ -1,13 +1,9 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center"><img src="https://www.ecubelabs.com/localized-landing-page/img/clean-cube-1.png" width="400"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Solutions intelligentes de gestion des déchets
 
-## Projet Reporting SIRB
+solutions intelligentes de gestion des déchets qui aide les villes et l'industrie de la collecte des déchets à réduire les coûts d'exploitation. la solution comprend:
 
-Le projet de reporting pour péage routier permettra au décideur de quantifier les opérations
-éffectuées sur les différents points de péage et en générale. Le projet fournit une 
-vision synthétique du passé, du présent et par conséquent du futur
+- La corbeille compactrice à énergie solaire
+- Capteur de remplissage de conteneur
+- Surveillance en temps réel et plate-forme d'analyse des données
